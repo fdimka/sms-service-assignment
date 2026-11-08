@@ -127,7 +127,7 @@ legacy schema upgrade,
 UI asset routes,
 The smoke command checks real HTTP requests and a server restart with a temporary database.
 
-## AI use and time
+## AI use
 
 ChatGPT was used to:
 interpret requirements,
