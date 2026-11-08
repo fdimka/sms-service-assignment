@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+  <title>Employee SMS</title>
+</head>
+<body>
+  <main>
+    <header class="page-header">
+      <h1>Employee SMS</h1>
+      <p>Add contacts, send a message, and follow its status.</p>
+    </header>
+
+    <div class="forms">
+      <section class="panel" aria-labelledby="contacts-heading">
+        <h2 id="contacts-heading">1. Add an employee contact</h2>
+        <p class="hint">The same first name, last name and address identify one employee. Add another number by saving the same details again.</p>
+        <form id="contact-form">
+          <div class="name-fields">
+            <label>First name<input id="first-name" name="firstName" required maxlength="100" autocomplete="given-name" dir="auto"></label>
+            <label>Last name<input id="last-name" name="lastName" required maxlength="100" autocomplete="family-name" dir="auto"></label>
+          </div>
+          <label>Address<input id="address" name="address" required maxlength="300" autocomplete="street-address" dir="auto"></label>
+          <label>Phone number<input id="contact-phone" name="phone" type="tel" required pattern="\+[1-9][0-9]{7,14}" placeholder="+972501234567" autocomplete="tel" aria-describedby="phone-hint"></label>
+          <p id="phone-hint" class="hint">Use + and 8–15 digits. Different employees may share a number.</p>
+          <button id="save-contact" type="submit">Save contact</button>
+          <p id="contact-feedback" class="feedback" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section class="panel" aria-labelledby="send-heading">
+        <h2 id="send-heading">2. Send an SMS</h2>
+        <form id="send-form">
+          <label>Employee<select id="employee" required><option value="">Add or select an employee</option></select></label>
+          <div class="directory-tools">
+            <span id="directory-count" class="hint"></span>
+            <button id="more-employees" class="text-button" type="button" hidden>Load more employees</button>
+          </div>
+          <label>Destination number<select id="destination" required disabled><option value="">Select an employee first</option></select></label>
+          <div class="message-label"><label for="message">Message</label><span id="character-count" class="hint">0 / 160</span></div>
+          <textarea id="message" rows="4" required dir="auto" aria-describedby="character-count"></textarea>
+          <div class="actions">
+            <button id="send-message" type="submit">Send message</button>
+            <button id="sample-message" class="secondary" type="button">Insert sample text</button>
+          </div>
+          <p id="send-feedback" class="feedback" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+    </div>
+
+    <section class="panel log-panel" aria-labelledby="log-heading">
+      <div class="log-header">
+        <h2 id="log-heading">Message log</h2>
+        <div class="log-tools">
+          <label class="inline-label" for="status-filter">Status</label>
+          <select id="status-filter">
+            <option value="">All statuses</option><option value="queued">Queued</option>
+            <option value="sending">Sending</option><option value="accepted">Accepted</option>
+            <option value="delivered">Delivered</option><option value="failed">Failed</option><option value="unknown">Unknown</option>
+          </select>
+          <button id="refresh-log" class="secondary" type="button">Refresh</button>
+          <label class="check-label"><input id="auto-refresh" type="checkbox" checked> Auto refresh</label>
+        </div>
+      </div>
+      <p class="hint">Acceptance is not delivery. The log refreshes every 2 seconds while auto refresh is on.</p>
+      <p id="log-feedback" class="feedback" role="status" aria-live="polite"></p>
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Message history">
+        <table>
+          <thead><tr><th scope="col">Created / message ID</th><th scope="col">Employee</th><th scope="col">To</th><th scope="col">Message</th><th scope="col">Status</th></tr></thead>
+          <tbody id="message-rows"><tr><td colspan="5" class="empty">No messages yet.</td></tr></tbody>
+        </table>
+      </div>
+      <div class="pagination">
+        <button id="previous-page" class="secondary" type="button" disabled>Previous</button>
+        <span id="page-info" class="hint">Page 1</span>
+        <button id="next-page" class="secondary" type="button" disabled>Next</button>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

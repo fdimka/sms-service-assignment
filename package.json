@@ -1,0 +1,26 @@
+{
+  "name": "sms-service-assignment",
+  "version": "1.1.0",
+  "private": true,
+  "type": "module",
+  "description": "A small persistent SMS service with a replaceable HTTP provider adapter.",
+  "engines": {
+    "node": ">=24.4.0 <25"
+  },
+  "scripts": {
+    "dev": "npm run build && node --env-file-if-exists=.env dist/src/main.js",
+    "local": "npm ci && npm start",
+    "build": "tsc -p tsconfig.json",
+    "start": "npm run build && node --env-file-if-exists=.env dist/src/main.js",
+    "test": "npm run build && node --test dist/test/*.test.js",
+    "check": "tsc -p tsconfig.json --noEmit",
+    "smoke": "npm run build && node scripts/smoke.mjs"
+  },
+  "dependencies": {
+    "fastify": "5.12.8"
+  },
+  "devDependencies": {
+    "@types/node": "24.19.2",
+    "typescript": "7.0.2"
+  }
+}

@@ -1,0 +1,65 @@
+:root { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; color: #1c2b36; background: #f4f6f8; font-size: 15px; }
+* { box-sizing: border-box; }
+body { margin: 0; }
+main { max-width: 1180px; margin: 0 auto; padding: 28px 20px 40px; }
+h1 { margin: 0 0 6px; font-size: 28px; }
+h2 { margin: 0 0 16px; font-size: 18px; }
+p { line-height: 1.5; }
+.page-header { margin-bottom: 24px; }
+.page-header p { margin: 0; color: #52606d; }
+.forms { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+.panel { background: #fff; padding: 22px; border: 1px solid #d6dde4; border-radius: 8px; }
+.hint { color: #52606d; font-size: 13px; margin: 4px 0 12px; }
+label { display: block; font-size: 14px; font-weight: 600; margin: 0 0 14px; }
+input, select, textarea { width: 100%; display: block; margin-top: 5px; padding: 10px; border: 1px solid #9ba9b7; border-radius: 4px; font: inherit; color: inherit; background: #fff; }
+textarea { resize: vertical; min-height: 116px; }
+button { border: 1px solid #215b98; border-radius: 4px; background: #215b98; color: #fff; padding: 10px 16px; font: inherit; font-weight: 600; cursor: pointer; }
+button:hover:not(:disabled) { background: #174575; }
+button:disabled { opacity: .55; cursor: default; }
+:focus-visible { outline: 3px solid #e29c2f; outline-offset: 3px; }
+.secondary { background: #fff; color: #215b98; }
+.secondary:hover:not(:disabled) { background: #edf4fb; }
+.text-button { border: 0; background: transparent; color: #215b98; padding: 2px; font-size: 13px; }
+.text-button:hover:not(:disabled) { background: #edf4fb; }
+.name-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.actions, .log-tools, .log-header, .directory-tools, .pagination { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.message-label { display: flex; justify-content: space-between; align-items: baseline; }
+.message-label label, .message-label .hint { margin-bottom: 0; }
+.directory-tools { justify-content: space-between; margin-top: -8px; }
+.feedback { font-size: 14px; min-height: 20px; margin: 12px 0 0; overflow-wrap: anywhere; }
+.feedback.error { color: #a42525; }
+.feedback.success { color: #23613b; }
+.log-header { justify-content: space-between; }
+.log-header h2 { margin: 0; }
+.log-tools select { width: auto; margin: 0; padding: 8px; }
+.inline-label, .check-label { margin: 0; font-size: 13px; }
+.check-label { display: flex; align-items: center; gap: 5px; font-weight: 400; white-space: nowrap; }
+.check-label input { width: auto; margin: 0; }
+.log-panel > .hint { margin-top: 12px; }
+.log-panel #log-feedback { min-height: 0; margin: 0 0 10px; }
+.table-scroll { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th, td { padding: 12px 10px; border-bottom: 1px solid #dce2e8; text-align: left; vertical-align: top; }
+th { background: #f5f7f9; font-size: 12px; font-weight: 700; white-space: nowrap; }
+td.message-text { min-width: 200px; max-width: 340px; white-space: pre-wrap; overflow-wrap: anywhere; }
+td.phone { white-space: nowrap; }
+small { display: block; margin-top: 5px; color: #52606d; font-size: 12px; overflow-wrap: anywhere; }
+.message-id { font-family: ui-monospace, monospace; max-width: 140px; }
+.badge { display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: 600; color: #324354; background: #edf0f3; }
+.badge.delivered { color: #1d5834; background: #e6f3e9; }
+.badge.failed { color: #982020; background: #fdeaea; }
+.badge.unknown { color: #79530c; background: #fff2d3; }
+.badge.accepted, .badge.sending { color: #184e82; background: #e9f2fc; }
+.empty { text-align: center; padding: 32px; color: #52606d; }
+.pagination { justify-content: flex-end; margin-top: 16px; }
+.pagination .hint { margin: 0 4px; }
+[hidden] { display: none !important; }
+@media (max-width: 760px) {
+  main { padding: 20px 12px; }
+  .forms { grid-template-columns: 1fr; gap: 14px; margin-bottom: 14px; }
+  .panel { padding: 16px; }
+  .log-header { gap: 14px; }
+  .log-tools { width: 100%; }
+  .log-tools button { padding: 9px 12px; }
+}
+@media (max-width: 360px) { .name-fields { grid-template-columns: 1fr; gap: 0; } }
